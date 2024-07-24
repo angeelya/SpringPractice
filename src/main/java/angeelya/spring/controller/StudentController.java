@@ -20,10 +20,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/student")
 public class StudentController {
+    private final StudentService studentService;
+    private final ValidationService validationService;
+
     @Autowired
-    private StudentService studentService;
-    @Autowired
-    private ValidationService validationService;
+    public StudentController(StudentService studentService, ValidationService validationService) {
+        this.studentService = studentService;
+        this.validationService = validationService;
+    }
 
     @GetMapping("/all")
     public ResponseEntity<List<StudentResponse>> getAllStudents() throws NotFoundException {

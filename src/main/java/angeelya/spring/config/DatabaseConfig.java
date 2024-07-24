@@ -17,12 +17,15 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@EnableJpaRepositories("angeelya.spring.database.repository")
+@EnableJpaRepositories("angeelya.spring.repository")
 @EnableTransactionManagement
 @PropertySource({"classpath:database.properties", "classpath:hibernate.properties"})
 public class DatabaseConfig {
+    final Environment env;
     @Autowired
-    Environment env;
+    public DatabaseConfig(Environment env) {
+        this.env = env;
+    }
 
     @Bean
     public DataSource dataSource() {
@@ -41,7 +44,7 @@ public class DatabaseConfig {
         adapter.setShowSql(true);
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPackagesToScan("angeelya.spring.database.model");
+        entityManagerFactoryBean.setPackagesToScan("angeelya.spring.model");
         entityManagerFactoryBean.setJpaVendorAdapter(adapter);
         entityManagerFactoryBean.setJpaProperties(getHibernateProperties());
         return entityManagerFactoryBean;

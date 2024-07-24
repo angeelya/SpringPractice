@@ -20,10 +20,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/group")
 public class GroupController {
+    private final GroupService groupService;
+    private final ValidationService validationService;
+
     @Autowired
-    private GroupService groupService;
-    @Autowired
-    private ValidationService validationService;
+    public GroupController(GroupService groupService, ValidationService validationService) {
+        this.groupService = groupService;
+        this.validationService = validationService;
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<GroupResponse>> getAllGroups() throws NotFoundException {
         return ResponseEntity.ok(groupService.findGroupsAll());

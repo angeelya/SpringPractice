@@ -7,8 +7,8 @@ import angeelya.spring.exceptionHandler.exception.DeleteException;
 import angeelya.spring.exceptionHandler.exception.NoAddException;
 import angeelya.spring.exceptionHandler.exception.NotFoundException;
 import angeelya.spring.mapper.TeacherMapper;
-import angeelya.spring.database.model.Teacher;
-import angeelya.spring.database.repository.TeacherRepository;
+import angeelya.spring.model.Teacher;
+import angeelya.spring.repository.TeacherRepository;
 import jakarta.persistence.TransactionRequiredException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -28,10 +28,14 @@ public class TeacherService {
     private static final String MS_SUCCESS_DELETE = "Teacher deleting is successful";
     private static final String MS_NOT_FOUND_LIST = "No teachers found";
     private static final String MS_NOT_FOUND = "Teacher not found";
+    private final TeacherRepository teacherRepository;
+    private final TeacherMapper teacherMapper;
+
     @Autowired
-    private TeacherRepository teacherRepository;
-    @Autowired
-    private TeacherMapper teacherMapper;
+    public TeacherService(TeacherRepository teacherRepository, TeacherMapper teacherMapper) {
+        this.teacherRepository = teacherRepository;
+        this.teacherMapper = teacherMapper;
+    }
 
     public MessageResponse addTeacher(TeacherAddRequest teacherAddRequest) throws NoAddException {
         Teacher teacher = teacherMapper.teacherAddRequestToTeacher(teacherAddRequest);

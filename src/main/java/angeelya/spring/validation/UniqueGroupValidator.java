@@ -1,7 +1,7 @@
 package angeelya.spring.validation;
 
-import angeelya.spring.database.model.Group;
-import angeelya.spring.database.repository.GroupRepository;
+import angeelya.spring.model.Group;
+import angeelya.spring.repository.GroupRepository;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 

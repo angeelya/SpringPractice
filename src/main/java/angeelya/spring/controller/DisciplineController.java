@@ -21,10 +21,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/discipline")
 public class DisciplineController {
+    private final DisciplineService disciplineService;
+    private final ValidationService validationService;
     @Autowired
-    private DisciplineService disciplineService;
-    @Autowired
-    private ValidationService validationService;
+    public DisciplineController(DisciplineService disciplineService, ValidationService validationService) {
+        this.disciplineService = disciplineService;
+        this.validationService = validationService;
+    }
 
     @GetMapping("/all")
     public ResponseEntity<List<DisciplineResponse>> getAllDisciplines() throws NotFoundException {

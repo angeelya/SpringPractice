@@ -8,8 +8,8 @@ import angeelya.spring.dto.response.MessageResponse;
 import angeelya.spring.exceptionHandler.exception.NoAddException;
 import angeelya.spring.exceptionHandler.exception.NotFoundException;
 import angeelya.spring.mapper.DisciplineMapper;
-import angeelya.spring.database.model.Discipline;
-import angeelya.spring.database.repository.DisciplineRepository;
+import angeelya.spring.model.Discipline;
+import angeelya.spring.repository.DisciplineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
@@ -22,10 +22,15 @@ public class DisciplineService {
     private static final String MS_FAILED_SAVE = "Failed to save discipline";
     private static final String MS_SUCCESS_UPDATE = "Discipline updating is successful";
     private static final String MS_NOT_FOUND_LIST = "No discipline found";
+    private final DisciplineRepository disciplineRepository;
+    private final DisciplineMapper disciplineMapper;
+
     @Autowired
-    private DisciplineRepository disciplineRepository;
-    @Autowired
-    private DisciplineMapper disciplineMapper;
+
+    public DisciplineService(DisciplineRepository disciplineRepository, DisciplineMapper disciplineMapper) {
+        this.disciplineRepository = disciplineRepository;
+        this.disciplineMapper = disciplineMapper;
+    }
 
     public MessageResponse addDiscipline(DisciplineAddRequest disciplineAddRequest) throws NoAddException {
         Discipline discipline = disciplineMapper.disciplineAddRequestToDiscipline(disciplineAddRequest);

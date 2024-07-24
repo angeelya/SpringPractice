@@ -1,6 +1,6 @@
-package angeelya.spring.database.repository;
+package angeelya.spring.repository;
 
-import angeelya.spring.database.model.Group;
+import angeelya.spring.model.Group;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -7,8 +7,8 @@ import angeelya.spring.exceptionHandler.exception.DeleteException;
 import angeelya.spring.exceptionHandler.exception.NoAddException;
 import angeelya.spring.exceptionHandler.exception.NotFoundException;
 import angeelya.spring.mapper.StudentMapper;
-import angeelya.spring.database.model.Student;
-import angeelya.spring.database.repository.StudentRepository;
+import angeelya.spring.model.Student;
+import angeelya.spring.repository.StudentRepository;
 import jakarta.persistence.TransactionRequiredException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -29,10 +29,13 @@ public class StudentService {
     private static final String MS_SUCCESS_UPDATE = "Student updating is successful";
     private static final String MS_SUCCESS_DELETE = "Student deleting is successful";
 
+    private final StudentRepository studentRepository;
+    private final StudentMapper studentMapper;
     @Autowired
-    private StudentRepository studentRepository;
-    @Autowired
-    private StudentMapper studentMapper;
+    public StudentService(StudentRepository studentRepository, StudentMapper studentMapper) {
+        this.studentRepository = studentRepository;
+        this.studentMapper = studentMapper;
+    }
 
     public List<StudentResponse> findAllStudents() throws NotFoundException {
         List<Student> students = studentRepository.findAll();

@@ -1,4 +1,4 @@
-package angeelya.spring.database.model;
+package angeelya.spring.model;
 
 import jakarta.persistence.*;
 

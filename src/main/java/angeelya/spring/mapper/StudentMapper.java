@@ -3,7 +3,7 @@ package angeelya.spring.mapper;
 import angeelya.spring.dto.request.StudentAddRequest;
 import angeelya.spring.dto.request.StudentUpdateRequest;
 import angeelya.spring.dto.response.StudentResponse;
-import angeelya.spring.database.model.Student;
+import angeelya.spring.model.Student;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;

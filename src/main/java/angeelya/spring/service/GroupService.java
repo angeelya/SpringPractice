@@ -7,8 +7,8 @@ import angeelya.spring.exceptionHandler.exception.DeleteException;
 import angeelya.spring.exceptionHandler.exception.NoAddException;
 import angeelya.spring.exceptionHandler.exception.NotFoundException;
 import angeelya.spring.mapper.GroupMapper;
-import angeelya.spring.database.model.Group;
-import angeelya.spring.database.repository.GroupRepository;
+import angeelya.spring.model.Group;
+import angeelya.spring.repository.GroupRepository;
 import jakarta.persistence.TransactionRequiredException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -29,10 +29,13 @@ public class GroupService {
     private static final String MS_NOT_FOUND = "Group not found";
     private static final String MS_FAILED_ADD_TEACHING = "Failed to add teaching";
     private static final String MS_SUCCESS_ADD_TEACHING = "Teaching adding is successful";
+    private final GroupRepository groupRepository;
+    private final GroupMapper groupMapper;
     @Autowired
-    private GroupRepository groupRepository;
-    @Autowired
-    private GroupMapper groupMapper;
+    public GroupService(GroupRepository groupRepository, GroupMapper groupMapper) {
+        this.groupRepository = groupRepository;
+        this.groupMapper = groupMapper;
+    }
 
     public MessageResponse addGroup(GroupAddRequest groupAddRequest) throws NoAddException {
         Group group = groupMapper.groupAddRequestToGroup(groupAddRequest);
