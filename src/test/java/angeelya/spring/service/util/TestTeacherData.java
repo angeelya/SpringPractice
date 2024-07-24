@@ -1,17 +1,13 @@
 package angeelya.spring.service.util;
 
-import angeelya.spring.database.model.Student;
-import angeelya.spring.database.model.Teacher;
+import angeelya.spring.model.Teacher;
 import angeelya.spring.dto.request.*;
-import angeelya.spring.dto.response.StudentResponse;
 import angeelya.spring.dto.response.TeacherResponse;
 
 import java.util.List;
 
 import static angeelya.spring.service.util.TestDisciplineData.discipline;
-import static angeelya.spring.service.util.TestGroupData.group;
 import static angeelya.spring.service.util.TestGroupData.groups;
-import static angeelya.spring.service.util.TestStudentData.student;
 
 public class TestTeacherData {
     public static final String MS_SUCCESS_ADD = "Teacher adding is successful";

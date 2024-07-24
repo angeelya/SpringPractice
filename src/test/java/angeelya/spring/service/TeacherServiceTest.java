@@ -1,6 +1,6 @@
 package angeelya.spring.service;
 
-import angeelya.spring.database.repository.TeacherRepository;
+import angeelya.spring.repository.TeacherRepository;
 import angeelya.spring.dto.response.MessageResponse;
 import angeelya.spring.dto.response.TeacherResponse;
 import angeelya.spring.exceptionHandler.exception.DeleteException;

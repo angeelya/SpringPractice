@@ -1,6 +1,6 @@
 package angeelya.spring.service.util;
 
-import angeelya.spring.database.model.Discipline;
+import angeelya.spring.model.Discipline;
 import angeelya.spring.dto.request.DisciplineAddRequest;
 import angeelya.spring.dto.request.DisciplineRequest;
 import angeelya.spring.dto.request.DisciplineUpdateRequest;

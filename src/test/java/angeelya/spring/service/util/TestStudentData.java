@@ -1,6 +1,6 @@
 package angeelya.spring.service.util;
 
-import angeelya.spring.database.model.Student;
+import angeelya.spring.model.Student;
 import angeelya.spring.dto.request.SearchRequest;
 import angeelya.spring.dto.request.StudentAddRequest;
 import angeelya.spring.dto.request.StudentRequest;
@@ -10,7 +10,6 @@ import angeelya.spring.dto.response.StudentResponse;
 import java.util.List;
 
 import static angeelya.spring.service.util.TestGroupData.group;
-import static angeelya.spring.service.util.TestGroupData.searchRequest;
 
 public class TestStudentData {
     public static final String MS_SUCCESS_ADD = "Student adding is successful";

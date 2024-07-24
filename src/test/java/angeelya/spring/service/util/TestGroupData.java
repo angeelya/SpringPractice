@@ -1,6 +1,6 @@
 package angeelya.spring.service.util;
 
-import angeelya.spring.database.model.Group;
+import angeelya.spring.model.Group;
 import angeelya.spring.dto.request.*;
 import angeelya.spring.dto.response.GroupResponse;
 

@@ -1,7 +1,7 @@
 package angeelya.spring.service;
 
-import angeelya.spring.database.model.Discipline;
-import angeelya.spring.database.repository.DisciplineRepository;
+import angeelya.spring.model.Discipline;
+import angeelya.spring.repository.DisciplineRepository;
 import angeelya.spring.dto.response.DisciplineResponse;
 import angeelya.spring.dto.response.MessageResponse;
 import angeelya.spring.exceptionHandler.exception.NoAddException;
